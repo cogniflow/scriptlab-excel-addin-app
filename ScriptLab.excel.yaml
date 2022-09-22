@@ -1,0 +1,665 @@
+name: Cogniflow Add-in
+description: ''
+host: EXCEL
+api_set: {}
+script:
+  content: >
+    var e, t, n, s, i, o = {}, l = [], a =
+    /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
+    function r(e, t) { for (var n in t) e[n] = t[n]; return e } function c(e) {
+    var t = e.parentNode; t && t.removeChild(e) } function d(t, n, s) { var i,
+    o, l, a = {}; for (l in n) "key" == l ? i = n[l] : "ref" == l ? o = n[l] :
+    a[l] = n[l]; if (arguments.length > 2 && (a.children = arguments.length > 3
+    ? e.call(arguments, 2) : s), "function" == typeof t && null !=
+    t.defaultProps) for (l in t.defaultProps) void 0 === a[l] && (a[l] =
+    t.defaultProps[l]); return u(t, a, i, o, null) } function u(e, s, i, o, l) {
+    var a = { type: e, props: s, key: i, ref: o, __k: null, __: null, __b: 0,
+    __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: null
+    == l ? ++n : l }; return null == l && null != t.vnode && t.vnode(a), a }
+    function p(e) { return e.children } function _(e, t) { this.props = e,
+    this.context = t } function g(e, t) { if (null == t) return e.__ ? g(e.__,
+    e.__.__k.indexOf(e) + 1) : null; for (var n; t < e.__k.length; t++)if (null
+    != (n = e.__k[t]) && null != n.__e) return n.__e; return "function" ==
+    typeof e.type ? g(e) : null } function h(e) { var t, n; if (null != (e =
+    e.__) && null != e.__c) { for (e.__e = e.__c.base = null, t = 0; t <
+    e.__k.length; t++)if (null != (n = e.__k[t]) && null != n.__e) { e.__e =
+    e.__c.base = n.__e; break } return h(e) } } function v(e) { (!e.__d &&
+    (e.__d = !0) && s.push(e) && !m.__r++ || i !== t.debounceRendering) && ((i =
+    t.debounceRendering) || setTimeout)(m) } function m() { for (var e; m.__r =
+    s.length;)e = s.sort((function (e, t) { return e.__v.__b - t.__v.__b })), s
+    = [], e.some((function (e) { var t, n, s, i, o, l; e.__d && (o = (i = (t =
+    e).__v).__e, (l = t.__P) && (n = [], (s = r({}, i)).__v = i.__v + 1, C(l, i,
+    s, t.__n, void 0 !== l.ownerSVGElement, null != i.__h ? [o] : null, n, null
+    == o ? g(i) : o, i.__h), $(n, i), i.__e != o && h(i))) })) } function f(e,
+    t, n, s, i, a, r, c, d, _) { var h, v, m, f, b, w, k, T = s && s.__k || l, $
+    = T.length; for (n.__k = [], h = 0; h < t.length; h++)if (null != (f =
+    n.__k[h] = null == (f = t[h]) || "boolean" == typeof f ? null : "string" ==
+    typeof f || "number" == typeof f || "bigint" == typeof f ? u(null, f, null,
+    null, f) : Array.isArray(f) ? u(p, { children: f }, null, null, null) :
+    f.__b > 0 ? u(f.type, f.props, f.key, f.ref ? f.ref : null, f.__v) : f)) {
+    if (f.__ = n, f.__b = n.__b + 1, null === (m = T[h]) || m && f.key == m.key
+    && f.type === m.type) T[h] = void 0; else for (v = 0; v < $; v++) { if ((m =
+    T[v]) && f.key == m.key && f.type === m.type) { T[v] = void 0; break } m =
+    null } C(e, f, m = m || o, i, a, r, c, d, _), b = f.__e, (v = f.ref) &&
+    m.ref != v && (k || (k = []), m.ref && k.push(m.ref, null, f), k.push(v,
+    f.__c || b, f)), null != b ? (null == w && (w = b), "function" == typeof
+    f.type && f.__k === m.__k ? f.__d = d = y(f, d, e) : d = x(e, f, m, T, b,
+    d), "function" == typeof n.type && (n.__d = d)) : d && m.__e == d &&
+    d.parentNode != e && (d = g(m)) } for (n.__e = w, h = $; h--;)null != T[h]
+    && ("function" == typeof n.type && null != T[h].__e && T[h].__e == n.__d &&
+    (n.__d = g(s, h + 1)), P(T[h], T[h])); if (k) for (h = 0; h < k.length;
+    h++)E(k[h], k[++h], k[++h]) } function y(e, t, n) { for (var s, i = e.__k, o
+    = 0; i && o < i.length; o++)(s = i[o]) && (s.__ = e, t = "function" ==
+    typeof s.type ? y(s, t, n) : x(n, s, s, i, s.__e, t)); return t } function
+    x(e, t, n, s, i, o) { var l, a, r; if (void 0 !== t.__d) l = t.__d, t.__d =
+    void 0; else if (null == n || i != o || null == i.parentNode) e: if (null ==
+    o || o.parentNode !== e) e.appendChild(i), l = null; else { for (a = o, r =
+    0; (a = a.nextSibling) && r < s.length; r += 2)if (a == i) break e;
+    e.insertBefore(i, o), l = o } return void 0 !== l ? l : i.nextSibling }
+    function b(e, t, n) { "-" === t[0] ? e.setProperty(t, n) : e[t] = null == n
+    ? "" : "number" != typeof n || a.test(t) ? n : n + "px" } function w(e, t,
+    n, s, i) { var o; e: if ("style" === t) if ("string" == typeof n)
+    e.style.cssText = n; else { if ("string" == typeof s && (e.style.cssText = s
+    = ""), s) for (t in s) n && t in n || b(e.style, t, ""); if (n) for (t in n)
+    s && n[t] === s[t] || b(e.style, t, n[t]) } else if ("o" === t[0] && "n" ===
+    t[1]) o = t !== (t = t.replace(/Capture$/, "")), t = t.toLowerCase() in e ?
+    t.toLowerCase().slice(2) : t.slice(2), e.l || (e.l = {}), e.l[t + o] = n, n
+    ? s || e.addEventListener(t, o ? T : k, o) : e.removeEventListener(t, o ? T
+    : k, o); else if ("dangerouslySetInnerHTML" !== t) { if (i) t =
+    t.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s"); else if ("href" !== t
+    && "list" !== t && "form" !== t && "tabIndex" !== t && "download" !== t && t
+    in e) try { e[t] = null == n ? "" : n; break e } catch (e) { } "function" ==
+    typeof n || (null != n && (!1 !== n || "a" === t[0] && "r" === t[1]) ?
+    e.setAttribute(t, n) : e.removeAttribute(t)) } } function k(e) {
+    this.l[e.type + !1](t.event ? t.event(e) : e) } function T(e) {
+    this.l[e.type + !0](t.event ? t.event(e) : e) } function C(n, s, i, l, a, d,
+    u, h, v) { var m, y, x, b, k, T, C, $, E, P, I, S, B, M = s.type; if (void 0
+    !== s.constructor) return null; null != i.__h && (v = i.__h, h = s.__e =
+    i.__e, s.__h = null, d = [h]), (m = t.__b) && m(s); try { e: if ("function"
+    == typeof M) { if ($ = s.props, E = (m = M.contextType) && l[m.__c], P = m ?
+    E ? E.props.value : m.__ : l, i.__c ? C = (y = s.__c = i.__c).__ = y.__E :
+    ("prototype" in M && M.prototype.render ? s.__c = y = new M($, P) : (s.__c =
+    y = new _($, P), y.constructor = M, y.render = A), E && E.sub(y), y.props =
+    $, y.state || (y.state = {}), y.context = P, y.__n = l, x = y.__d = !0,
+    y.__h = []), null == y.__s && (y.__s = y.state), null !=
+    M.getDerivedStateFromProps && (y.__s == y.state && (y.__s = r({}, y.__s)),
+    r(y.__s, M.getDerivedStateFromProps($, y.__s))), b = y.props, k = y.state,
+    x) null == M.getDerivedStateFromProps && null != y.componentWillMount &&
+    y.componentWillMount(), null != y.componentDidMount &&
+    y.__h.push(y.componentDidMount); else { if (null ==
+    M.getDerivedStateFromProps && $ !== b && null != y.componentWillReceiveProps
+    && y.componentWillReceiveProps($, P), !y.__e && null !=
+    y.shouldComponentUpdate && !1 === y.shouldComponentUpdate($, y.__s, P) ||
+    s.__v === i.__v) { y.props = $, y.state = y.__s, s.__v !== i.__v && (y.__d =
+    !1), y.__v = s, s.__e = i.__e, s.__k = i.__k, s.__k.forEach((function (e) {
+    e && (e.__ = s) })), y.__h.length && u.push(y); break e } null !=
+    y.componentWillUpdate && y.componentWillUpdate($, y.__s, P), null !=
+    y.componentDidUpdate && y.__h.push((function () { y.componentDidUpdate(b, k,
+    T) })) } if (y.context = P, y.props = $, y.__v = s, y.__P = n, I = t.__r, S
+    = 0, "prototype" in M && M.prototype.render) y.state = y.__s, y.__d = !1, I
+    && I(s), m = y.render(y.props, y.state, y.context); else do { y.__d = !1, I
+    && I(s), m = y.render(y.props, y.state, y.context), y.state = y.__s } while
+    (y.__d && ++S < 25); y.state = y.__s, null != y.getChildContext && (l =
+    r(r({}, l), y.getChildContext())), x || null == y.getSnapshotBeforeUpdate ||
+    (T = y.getSnapshotBeforeUpdate(b, k)), B = null != m && m.type === p && null
+    == m.key ? m.props.children : m, f(n, Array.isArray(B) ? B : [B], s, i, l,
+    a, d, u, h, v), y.base = s.__e, s.__h = null, y.__h.length && u.push(y), C
+    && (y.__E = y.__ = null), y.__e = !1 } else null == d && s.__v === i.__v ?
+    (s.__k = i.__k, s.__e = i.__e) : s.__e = function (t, n, s, i, l, a, r, d) {
+    var u, p, _, h = s.props, v = n.props, m = n.type, y = 0; if ("svg" === m &&
+    (l = !0), null != a) for (; y < a.length; y++)if ((u = a[y]) &&
+    "setAttribute" in u == !!m && (m ? u.localName === m : 3 === u.nodeType)) {
+    t = u, a[y] = null; break } if (null == t) { if (null === m) return
+    document.createTextNode(v); t = l ?
+    document.createElementNS("http://www.w3.org/2000/svg", m) :
+    document.createElement(m, v.is && v), a = null, d = !1 } if (null === m) h
+    === v || d && t.data === v || (t.data = v); else { if (a = a &&
+    e.call(t.childNodes), p = (h = s.props || o).dangerouslySetInnerHTML, _ =
+    v.dangerouslySetInnerHTML, !d) { if (null != a) for (h = {}, y = 0; y <
+    t.attributes.length; y++)h[t.attributes[y].name] = t.attributes[y].value; (_
+    || p) && (_ && (p && _.__html == p.__html || _.__html === t.innerHTML) ||
+    (t.innerHTML = _ && _.__html || "")) } if (function (e, t, n, s, i) { var o;
+    for (o in n) "children" === o || "key" === o || o in t || w(e, o, null,
+    n[o], s); for (o in t) i && "function" != typeof t[o] || "children" === o ||
+    "key" === o || "value" === o || "checked" === o || n[o] === t[o] || w(e, o,
+    t[o], n[o], s) }(t, v, h, l, d), _) n.__k = []; else if (y =
+    n.props.children, f(t, Array.isArray(y) ? y : [y], n, s, i, l &&
+    "foreignObject" !== m, a, r, a ? a[0] : s.__k && g(s, 0), d), null != a) for
+    (y = a.length; y--;)null != a[y] && c(a[y]); d || ("value" in v && void 0
+    !== (y = v.value) && (y !== t.value || "progress" === m && !y || "option"
+    === m && y !== h.value) && w(t, "value", y, h.value, !1), "checked" in v &&
+    void 0 !== (y = v.checked) && y !== t.checked && w(t, "checked", y,
+    h.checked, !1)) } return t }(i.__e, s, i, l, a, d, u, v); (m = t.diffed) &&
+    m(s) } catch (e) { s.__v = null, (v || null != d) && (s.__e = h, s.__h =
+    !!v, d[d.indexOf(h)] = null), t.__e(e, s, i) } } function $(e, n) { t.__c &&
+    t.__c(n, e), e.some((function (n) { try { e = n.__h, n.__h = [],
+    e.some((function (e) { e.call(n) })) } catch (e) { t.__e(e, n.__v) } })) }
+    function E(e, n, s) { try { "function" == typeof e ? e(n) : e.current = n }
+    catch (e) { t.__e(e, s) } } function P(e, n, s) { var i, o; if (t.unmount &&
+    t.unmount(e), (i = e.ref) && (i.current && i.current !== e.__e || E(i, null,
+    n)), null != (i = e.__c)) { if (i.componentWillUnmount) try {
+    i.componentWillUnmount() } catch (e) { t.__e(e, n) } i.base = i.__P = null,
+    e.__c = void 0 } if (i = e.__k) for (o = 0; o < i.length; o++)i[o] &&
+    P(i[o], n, "function" != typeof e.type); s || null == e.__e || c(e.__e),
+    e.__ = e.__e = e.__d = void 0 } function A(e, t, n) { return
+    this.constructor(e, n) } function I(n, s, i) { var l, a, r; t.__ && t.__(n,
+    s), a = (l = "function" == typeof i) ? null : i && i.__k || s.__k, r = [],
+    C(s, n = (!l && i || s).__k = d(p, null, [n]), a || o, o, void 0 !==
+    s.ownerSVGElement, !l && i ? [i] : a ? null : s.firstChild ?
+    e.call(s.childNodes) : null, r, !l && i ? i : a ? a.__e : s.firstChild, l),
+    $(r, n) } e = l.slice, t = { __e: function (e, t, n, s) { for (var i, o, l;
+    t = t.__;)if ((i = t.__c) && !i.__) try { if ((o = i.constructor) && null !=
+    o.getDerivedStateFromError && (i.setState(o.getDerivedStateFromError(e)), l
+    = i.__d), null != i.componentDidCatch && (i.componentDidCatch(e, s || {}), l
+    = i.__d), l) return i.__E = i } catch (t) { e = t } throw e } }, n = 0,
+    _.prototype.setState = function (e, t) { var n; n = null != this.__s &&
+    this.__s !== this.state ? this.__s : this.__s = r({}, this.state),
+    "function" == typeof e && (e = e(r({}, n), this.props)), e && r(n, e), null
+    != e && this.__v && (t && this.__h.push(t), v(this)) },
+    _.prototype.forceUpdate = function (e) { this.__v && (this.__e = !0, e &&
+    this.__h.push(e), v(this)) }, _.prototype.render = p, s = [], m.__r = 0; var
+    S = function (e, t, n, s) { var i; t[0] = 0; for (var o = 1; o < t.length;
+    o++) { var l = t[o++], a = t[o] ? (t[0] |= l ? 1 : 2, n[t[o++]]) : t[++o]; 3
+    === l ? s[0] = a : 4 === l ? s[1] = Object.assign(s[1] || {}, a) : 5 === l ?
+    (s[1] = s[1] || {})[t[++o]] = a : 6 === l ? s[1][t[++o]] += a + "" : l ? (i
+    = e.apply(a, S(e, a, n, ["", null])), s.push(i), a[0] ? t[0] |= 2 : (t[o -
+    2] = 0, t[o] = i)) : s.push(a) } return s }, B = new Map; function M(e) {
+    var t = B.get(this); return t || (t = new Map, B.set(this, t)), (t = S(this,
+    t.get(e) || (t.set(e, t = function (e) { for (var t, n, s = 1, i = "", o =
+    "", l = [0], a = function (e) { 1 === s && (e || (i =
+    i.replace(/^\s*\n\s*|\s*\n\s*$/g, ""))) ? l.push(0, e, i) : 3 === s && (e ||
+    i) ? (l.push(3, e, i), s = 2) : 2 === s && "..." === i && e ? l.push(4, e,
+    0) : 2 === s && i && !e ? l.push(5, 0, !0, i) : s >= 5 && ((i || !e && 5 ===
+    s) && (l.push(s, 0, i, n), s = 6), e && (l.push(s, e, 0, n), s = 6)), i = ""
+    }, r = 0; r < e.length; r++) { r && (1 === s && a(), a(r)); for (var c = 0;
+    c < e[r].length; c++)t = e[r][c], 1 === s ? "<" === t ? (a(), l = [l], s =
+    3) : i += t : 4 === s ? "--" === i && ">" === t ? (s = 1, i = "") : i = t +
+    i[0] : o ? t === o ? o = "" : i += t : '"' === t || "'" === t ? o = t : ">"
+    === t ? (a(), s = 1) : s && ("=" === t ? (s = 5, n = i, i = "") : "/" === t
+    && (s < 5 || ">" === e[r][c + 1]) ? (a(), 3 === s && (l = l[0]), s = l, (l =
+    l[0]).push(2, 0, s), s = 0) : " " === t || "\t" === t || "\n" === t || "\r"
+    === t ? (a(), s = 2) : i += t), 3 === s && "!--" === i && (s = 4, l = l[0])
+    } return a(), l }(e)), t), arguments, [])).length > 1 ? t : t[0] } const R =
+    { 0: "Text", 1: "Image", 2: "Audio" }, V = [0, 1, 100, 200, 201], L = { 0:
+    "Text classification", 1: "Text Translation", 2: "Entities recognition", 3:
+    "Question and answer", 100: "Image classification", 200: "Audio
+    classification", 201: "Audio speech to text" }, H = { 0: "text", 1: "image",
+    2: "audio" }, D = { 0: "classification/predict", 1: "translation/translate",
+    2: "information-extraction/extract-entities", 3: "question-answering/ask",
+    100: "classification/predict-from-web", 200:
+    "classification/predict-from-web", 201: "classification/predict-from-web" };
+    var N = { select: null }; const U = { login: { pageId: "page-login",
+    goToSecretTokenAuth: "login-go-to-secret", gotToNormalAuth:
+    "login-go-to-normal-auth", subPages: { defaultSubpage: "login-default-form",
+    secretToken: "login-use-secret-token" }, emailInput: "login-email-field",
+    passwordInput: "login-password-field", loginButton: "default-login-button",
+    invalidCredentials: "login-invalid-creds" }, experiments: { pageId:
+    "page-experiments", experimentCardsClassName: "experiment-card",
+    cardsContainer: "experiment-cards-container", visibilityDropdown:
+    "experiments-visibility-dropdown", typeDropdown:
+    "experiments-type-dropdown", logoutBtn: "logout" }, run: { pageId:
+    "pages-run-model", goBack: "pages-run-model-go-back", confidenceDd:
+    "run-show-confidence-checkbox", includeHeadersContainer:
+    "run-include-headers-container", hasHeadersCb: "run-show-has-headers",
+    insertDd: "run-insert-dropdown", modelDd: "run-model-dropdown", cellsRange:
+    "run-cells-range", expValue: "experiment-value", confidenceValue:
+    "confidence-value", hasHeadersValue: "has-headers-value", modelValue:
+    "model-value", resultPlaceValue: "result-place-value", runProgressContainer:
+    "run-progress-container", runProcessed: "run-processed", runTotalCells:
+    "run-total-cells", runPercentage: "run-percentage", runStop: "run-stop",
+    runExperiment: "run-experiment", runEditWarning: "run-edit-warning" } }, F =
+    { text: '<svg width="32" height="32" viewBox="0 0 32 32"
+    style="display:flex;align-items:center;background-color:#eceffa;border-radius:8px;"><g
+    fill="none" fill-rule="evenodd"><path fill="#a4a9c8" d="M24 21h-6c-.265
+    0-.52.107-.707.294l-.293.293V11.415L18.414 10H24v11zm-10 0H8V10h5.586L15
+    11.416v10.172l-.293-.293C14.52 21.106 14.265 21 14 21zM25 8h-7c-.265
+    0-.52.107-.707.293L16
+    9.586l-1.293-1.293c-.187-.186-.442-.292-.707-.292H7c-.552 0-1 .447-1 1v13c0
+    .551.448 1 1 1h6.586l1.707 1.706c.195.195.451.293.707.293.256 0
+    .512-.098.707-.293L18.414 23H25c.552 0 1-.448
+    1-1V9c0-.552-.448-1-1-1z"></path></g></svg>', image: '<svg width="32"
+    height="33" viewBox="0 0 32 33"
+    style="display:flex;align-items:center;background-color:#eceffa;border-radius:8px;"><g
+    fill="#A4A9C8" fill-rule="evenodd"><path d="M2 18v-1.52l3.93-3.14 2.36
+    2.37c.366.367.953.394 1.35.06l5.3-4.42L18 14.41V18H2zM18
+    2v9.59l-2.29-2.3c-.366-.367-.952-.393-1.35-.06l-5.3
+    4.42-2.35-2.36c-.361-.358-.933-.388-1.33-.07L2 13.92V2h16zm1-2H1C.448 0 0
+    .448 0 1v18c0 .553.448 1 1 1h18c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1z"
+    transform="translate(6 7)"></path><path d="M9 6c.552 0 1 .448 1 1s-.448 1-1
+    1-1-.448-1-1 .448-1 1-1m0 4c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3
+    1.343 3 3 3" transform="translate(6 7)"></path></g></svg>', audio: '<svg
+    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24
+    24"
+    style="display:flex;align-items:center;border-radius:8px;background-color:#eceffa;fill:
+    #A4A9C8;transform: ;msFilter:;"><path d="M8 12c2.28 0 4-1.72
+    4-4s-1.72-4-4-4-4 1.72-4 4 1.72 4 4 4zm0-6c1.178 0 2 .822 2 2s-.822 2-2
+    2-2-.822-2-2 .822-2 2-2zm1 7H7c-2.757 0-5 2.243-5 5v1h2v-1c0-1.654 1.346-3
+    3-3h2c1.654 0 3 1.346 3 3v1h2v-1c0-2.757-2.243-5-5-5zm9.364-10.364L16.95
+    4.05C18.271 5.373 19 7.131 19 9s-.729 3.627-2.05 4.95l1.414 1.414C20.064
+    13.663 21 11.403 21 9s-.936-4.663-2.636-6.364z"></path><path d="M15.535
+    5.464 14.121 6.88C14.688 7.445 15 8.198 15 9s-.312 1.555-.879 2.12l1.414
+    1.416C16.479 11.592 17 10.337 17 9s-.521-2.592-1.465-3.536z"></path></svg>'
+    }, q = ({ id: e, title: t, type: n, task: s, created_at: i, logo: o, ...l })
+    => `\n  <div class="experiment-card" id="${e}">\n\n    <div
+    class="exp-card-header">\n      <div class="exp-card-bg-img"></div>\n     
+    <div class="exp-card-header-logos">\n        <div
+    class="exp-card-logo-wrapper">\n          <img src="${o ?
+    `https://s3.us-east-2.amazonaws.com/static-cogniflow-prod/${o}` :
+    "https://app.cogniflow.ai/static/media/img-placeholder.3c18e621361480e8272e676738157c04.svg"}"
+    class="exp-card-logo" alt="card logo">\n        </div>\n        <div
+    class="exp-card-logo-type-wrapper">\n          ${F[H[n]]}\n       
+    </div>\n\n      </div>\n    </div>\n    \n    <div
+    class="exp-card-content">\n\n      <div class="exp-card-title">\n        <p
+    title="${t}">${t}</p>\n      </div>\n      <div
+    class="exp-card-body">\n        <p>${R[n]}/${L[s]}</p>\n      </div>\n     
+    <div class="exp-card-time">\n        <p>\n          Created: <span
+    class="exp-card-time-label">${(e => { const t = new Date(e), n =
+    t.getDate(), s = t.getMonth() + 1, i = t.getFullYear(); return s < 10 ?
+    `${n}/0${s}/${i}` : `${n}/${s}/${i}` })(i)}</span>\n        </p>\n     
+    </div>\n\n    </div>\n  </div>\n  `, z = ({ id: e, name: t, recommended: n
+    }) => `\n    <option value="${t}" id={${e}}>${t} ${n ? "✓" : ""}</option>\n 
+    `, W = (e, t, n, s) => { const i = s.getById(n); let o = ""; for (const n of
+    e) o += t(n); i.innerHTML = o }, Z = (e, t, n) => { const s = n.getById(t);
+    let i = ""; for (const t of e) i += z(t); s.innerHTML = i }, j = {
+    insertRight: e => e.getColumnsAfter(1), replaceRight: e =>
+    e.getColumnsAfter(1) }, O = e => { const [t, n] = e.split(":"); return t ===
+    n || 1 === t.length }, Y = e => e.split("")[0], Q = e => { const [t] =
+    e.split(":"), [n, ...s] = t.split(""), i = s.join(""); return parseInt(i) };
+    function G(e, t, n, s = {}) { return fetch(e, s).catch((function (i) { if
+    (triesLeft = n - 1, !triesLeft) throw i; return wait(t).then((() => G(e, t,
+    triesLeft, s))) })) } class J { constructor(e) { this.headers = {
+    "Content-Type": "application/json" }, this.baseUrl = e }
+    setTokenInHeaders(e) { this.headers = { Authorization: `Bearer ${e}`,
+    ...this.headers } } req(e) { return (t, n, s, i = "normal") => "normal" ===
+    i ? fetch(`${this.baseUrl}/${t}`, { method: e, headers: { ...this.headers,
+    ...s ?? {}}, body: n }).then((e => { if (!e.ok) { const t = new Error("HTTP
+    status code: " + e.status); throw t.response = e, t.status = e.status, t }
+    return e.json() })).then((e => e)) : G(`${this.baseUrl}/${t}`, 12e4, 200, {
+    method: e, headers: { ...this.headers, ...s ?? {}}, body: n }).then((e => {
+    if (!e.ok) { const t = new Error("HTTP status code: " + e.status); throw
+    t.response = e, t.status = e.status, t } return e.json() })).then((e => e))
+    } get = this.req("GET"); post = this.req("POST") } const X = M.bind(d), K =
+    () => X`<svg
+      id="Capa_1"
+      data-name="Capa 1"
+      viewBox="0 0 841.89 235.28"
+      height="100px"
+    >
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #141624;
+          }
+
+          .cls-2 {
+            fill: #eb5e60;
+          }
+
+          .cls-3 {
+            fill: none;
+            stroke: #eb5e60;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 14px;
+          }
+        </style>
+      </defs>
+      <title>1a</title>
+      <path
+        class="cls-1"
+        d="M169.59,144.1a30.6,30.6,0,0,1,0-43.49v-.06h0a30.72,30.72,0,0,1,41.44-1.86,5.32,5.32,0,0,1,2,3.1c.07.9.11,1.44.11,1.63a6.16,6.16,0,0,1-1.41,3.88c-1.12,1.32-2.13,2-3,2.09s-1.4.11-1.55.11a6.56,6.56,0,0,1-4.05-1.41,18.53,18.53,0,0,0-24.94,27.36,18.54,18.54,0,0,0,24.94,1.13,6.16,6.16,0,0,1,3.88-1.41,6,6,0,0,1,4.73,2.2,6.18,6.18,0,0,1-.73,8.61,30.18,30.18,0,0,1-9.29,5.29,29.35,29.35,0,0,1-10.41,1.86A29.75,29.75,0,0,1,169.59,144.1Z"
+      ></path>
+      <path
+        class="cls-1"
+        d="M244,144.1a30.72,30.72,0,0,1,0-43.49l.05-.06a30.8,30.8,0,0,1,52.53,21.79A30.78,30.78,0,0,1,244,144.1Zm34.85-8.67a18.52,18.52,0,1,0-13.09,5.43A17.84,17.84,0,0,0,278.88,135.43Z"
+      ></path>
+      <path
+        class="cls-1"
+        d="M335.54,176.5a30.56,30.56,0,0,1-9.51-7.32,6.18,6.18,0,0,1-1.47-4,6.06,6.06,0,0,1,2.09-4.62,6,6,0,0,1,3.94-1.52,6.12,6.12,0,0,1,4.67,2.09,19.75,19.75,0,0,0,5.74,4.44,18.07,18.07,0,0,0,8.22,1.92,18.64,18.64,0,0,0,18.52-18.58v-2a30.82,30.82,0,0,1-49.37-24.54,29.63,29.63,0,0,1,9.06-21.73v-.06a30.78,30.78,0,0,1,43.52,0A30.78,30.78,0,0,1,380,122.17v26.74a30.86,30.86,0,0,1-30.8,30.8A30.18,30.18,0,0,1,335.54,176.5Zm26.74-41.07a18.53,18.53,0,1,0-13.06,5.43A17.82,17.82,0,0,0,362.28,135.43Z"
+      ></path>
+      <path
+        class="cls-1"
+        d="M442.33,151.33a5.91,5.91,0,0,1-1.8-4.33V114.23a9,9,0,0,0-3.55-7,15.46,15.46,0,0,0-19.42,0,9,9,0,0,0-3.55,7V147a6.15,6.15,0,0,1-6.13,6.13,5.82,5.82,0,0,1-4.31-1.8A6,6,0,0,1,401.8,147V97.62a6,6,0,0,1,6.08-6.08,6,6,0,0,1,5.63,3.6,26.9,26.9,0,0,1,13.79-3.6,26.22,26.22,0,0,1,17.62,6.36q7.89,6.7,7.88,16.33V147a6.13,6.13,0,0,1-10.47,4.33Z"
+      ></path>
+      <path
+        class="cls-1"
+        d="M476.38,78.14a5.9,5.9,0,0,1-1.8-4.33V71.05a6.14,6.14,0,0,1,12.28,0v2.76a6.14,6.14,0,0,1-10.48,4.33Zm0,73.19a5.91,5.91,0,0,1-1.8-4.33V97.62a5.84,5.84,0,0,1,1.8-4.31,6.19,6.19,0,0,1,8.67,0,5.85,5.85,0,0,1,1.81,4.31V147a6.14,6.14,0,0,1-10.48,4.33Z"
+      ></path>
+      <path
+        class="cls-2"
+        d="M510.8,177.93a5.87,5.87,0,0,1-1.77-4.31V122.34a29.7,29.7,0,0,1,9-21.73l.05-.06a29.74,29.74,0,0,1,21.74-9,6,6,0,0,1,4.33,1.77,5.84,5.84,0,0,1,1.8,4.31,6.15,6.15,0,0,1-6.13,6.14,18.64,18.64,0,0,0-18.58,18.58v18.52h18.58a6.14,6.14,0,0,1,0,12.27H521.25v20.49a6.08,6.08,0,0,1-6.08,6.09A6,6,0,0,1,510.8,177.93Z"
+      ></path>
+      <path
+        class="cls-2"
+        d="M588.57,153.13a20.91,20.91,0,0,1-20.83-20.83V71.05a6.14,6.14,0,0,1,12.28,0V132.3a8.55,8.55,0,0,0,8.55,8.56h10.81a5.91,5.91,0,0,1,4.37,1.8,6.19,6.19,0,0,1,0,8.67,5.91,5.91,0,0,1-4.37,1.8Z"
+      ></path>
+      <path
+        class="cls-2"
+        d="M630.7,144.1a30.72,30.72,0,0,1,0-43.49l.05-.06a30.8,30.8,0,0,1,52.53,21.79A30.78,30.78,0,0,1,630.7,144.1Zm34.85-8.67a18.52,18.52,0,1,0-13.09,5.43A17.88,17.88,0,0,0,665.55,135.43Z"
+      ></path>
+      <path
+        class="cls-2"
+        d="M761.62,152.79a6.22,6.22,0,0,1-3.55-3l-11.76-23.53-11.77,23.53a5.86,5.86,0,0,1-2.7,2.71,6.36,6.36,0,0,1-2.76.67,5.64,5.64,0,0,1-1.92-.34,6.18,6.18,0,0,1-3.54-3L699,100.38a6.37,6.37,0,0,1-.68-2.76,5.83,5.83,0,0,1,.34-1.91,6.3,6.3,0,0,1,3-3.55,6.47,6.47,0,0,1,2.7-.62,5.88,5.88,0,0,1,5.52,3.38l19.2,38.45,11.76-23.53a5.92,5.92,0,0,1,5.47-3.38,6.3,6.3,0,0,1,2.75.68,5.91,5.91,0,0,1,2.71,2.7l11.76,23.53,19.2-38.45a5.88,5.88,0,0,1,5.52-3.38,6.47,6.47,0,0,1,2.7.62,5.84,5.84,0,0,1,3.38,5.46,6.37,6.37,0,0,1-.68,2.76L769,149.75a6.21,6.21,0,0,1-2.75,2.71,6.05,6.05,0,0,1-2.71.67A5.62,5.62,0,0,1,761.62,152.79Z"
+      ></path>
+      <polyline
+        class="cls-3"
+        points="75.47 79.2 47.03 119.07 75.47 164.07"
+      ></polyline>
+      <polyline
+        class="cls-3"
+        points="113.2 79.2 84.76 119.07 113.2 164.07"
+      ></polyline>
+      <line class="cls-3" x1="101.72" y1="145.91" x2="133.07" y2="104.48"></line>
+    </svg>`, ee = M.bind(d), te = () => ee`
+        <div id="page-login" class="app-page">
+          <div class="login__logo-wrapper">
+            <${K} />
+          </div>
+          <section class="login__form-section">
+            <div class="login__form-wrapper">
+              <p class="cogni__title mb-md">Log in to continue</p>
+              <div class="px-sm" id="login-default-form">
+                <div class="login__form-field mb-sm">
+                  <p class="cogni__md-text wg-md">Email</p>
+                  <input
+                    id="login-email-field"
+                    class="cogni__form-input w-100"
+                    placeholder="Your email"
+                    type="email"
+                    required
+                  />
+                </div>
+                <div class="login__form-field mb-sm">
+                  <p class="cogni__md-text wg-md">Password</p>
+                  <input
+                    id="login-password-field"
+                    class="cogni__form-input w-100"
+                    placeholder="Password"
+                    type="password"
+                    required
+                  />
+                </div>
+                <div class="login__form-field">
+                  <p
+                    class="cogni__link cogni__text-xs login__secret-token-link"
+                    id="login-go-to-secret"
+                  >
+                    <!-- Use a secret token instead -->
+                  </p>
+                </div>
+                <div class="login__form-field mt-sm">
+                  <button
+                    id="default-login-button"
+                    class="w-100 cogni__type__main py-sm login__form-button"
+                    type="button"
+                  >
+                    Login
+                  </button>
+                  <p class="mt-sm login-error" id="login-invalid-creds">
+                    Invalid credentials, please try again
+                  </p>
+                </div>
+              </div>
+              <div class="px-sm d-none" id="login-use-secret-token">
+                <div class="login__form-field mb-sm">
+                  <p class="cogni__md-text wg-md">Authentication token</p>
+                  <input
+                    class="cogni__form-input w-100"
+                    placeholder="Ask for your access token"
+                    required
+                  />
+                </div>
+                <div class="login__form-field">
+                  <p
+                    class="cogni__link cogni__text-xs login__secret-token-link"
+                    id="login-go-to-normal-auth"
+                  >
+                    Use normal authentication instead
+                  </p>
+                </div>
+                <div class="login__form-field mt-sm">
+                  <button
+                    id="default-login-button"
+                    class="w-100 cogni__type__main py-sm login__form-button"
+                    type="button"
+                  >
+                    Login using token
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      `, ne = M.bind(d), se = () => ne` <div id="page-experiments" class="app-page">
+        <div class="cogni__navbar mb-xs main-navbar">
+          <div class="navbar__logo-text">
+            <div class="navbar__logo">
+              <img
+                height="30"
+                src="https://media-exp1.licdn.com/dms/image/C4E0BAQFJHyVpoH4QuA/company-logo_200_200/0/1630606332593?e=2159024400&v=beta&t=qcXVSsYYBTcdeX0e-Cx8q5cxStydyPjhEWyEZcYaj0Y"
+                alt="Cogniflow logo"
+              />
+            </div>
+          </div>
+          <div>
+            <select
+              id="experiments-visibility-dropdown"
+              class="cogni__default-select experiments-select"
+              disabled
+            >
+              <option value="list">Private experiments</option>
+              <option value="publicExperiments">Public experiments</option>
+            </select>
+          </div>
+          <div>
+            <select
+              id="experiments-type-dropdown"
+              class="cogni__default-select experiments-select"
+            >
+              <option value="">All types</option>
+              <option value="0">Text</option>
+              <option value="1">Image</option>
+              <option value="2">Audio</option>
+            </select>
+          </div>
+          <div class="cogni__nav-link" id="logout">
+            <p>Logout</p>
+          </div>
+        </div>
+        <section id="experiments-list" class="p-md">
+          <div class="experiments-options">
+            <!-- <div class="experiments-searchbar-wrapper mb-sm">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="cogni__form-input experiments-search-input"
+                    />
+                    <button>O</button>
+                  </div> -->
+          </div>
+          <div class="experiment-cards" id="experiment-cards-container">
+            <!-- DYNAMIC HERE -->
+          </div>
+        </section>
+      </div>`, ie = M.bind(d), oe = () => ie`
+        <div id="pages-run-model" class="app-page">
+          <div class="cogni__navbar mb-sm">
+            <button
+              id="pages-run-model-go-back"
+              class="cogni__goback-button experiment-go-back"
+            >
+              <span class="cogni__arrow-icon"> </span>
+            </button>
+            <p id="experiment-value" class="experiment-name">Experiment name</p>
+            <div class="experiment-nav-item-void"></div>
+          </div>
+          <div class="p-md">
+            <div class="run-options-bar">
+              <div class="run-dropdowns-wrapper">
+                <div class="run-select-field">
+                  <p>Model to use</p>
+                  <select
+                    name=""
+                    id="run-model-dropdown"
+                    class="cogni__default-select"
+                  >
+                    <!-- Dynamic data -->
+                  </select>
+                </div>
+                <div class="run-select-field">
+                  <p>Place result</p>
+                  <select
+                    name=""
+                    id="run-insert-dropdown"
+                    class="cogni__default-select"
+                  >
+                    <option value="insertRight">Insert results at the right</option>
+                    <option value="replaceRight">
+                      Replace values at the right
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="p-md run-cells-range">
+              <div class="run-cells-range-items run-range-input-wrapper">
+                <p>Cells range or column</p>
+                <input
+                  type="text"
+                  placeholder="Example: A2:A10"
+                  id="run-cells-range"
+                  class="cogni__form-input"
+                  value="A2:A5"
+                />
+              </div>
+              <div class="run-cells-range-items">
+                <p class="run-checkbox-label">Show confidence</p>
+                <input type="checkbox" id="run-show-confidence-checkbox" />
+              </div>
+              <!-- <div class="run-cells-range-items" id="run-include-headers-container" style="display: none">
+          <p class="run-checkbox-label">My sheet includes headers</p>
+          <input type="checkbox" id="run-show-has-headers" checked />
+        </div> -->
+              <div class="run-cells-range-items" id="run-include-headers-container">
+                <p class="run-checkbox-label">My sheet includes headers</p>
+                <input type="checkbox" id="run-show-has-headers" checked />
+              </div>
+              <!-- <input type="checkbox" id="run-show-has-headers" /> -->
+            </div>
+            <div class="mt-md mb-md"></div>
+            <div class="run-progress-wrapper mb-sm" id="run-progress-container">
+              <p>
+                Progress:<span style="margin-right: 8px"></span>
+                <span id="run-processed">0</span> /
+                <span id="run-total-cells">0</span
+                ><span style="margin-right: 8px"></span>(<span id="run-percentage"
+                  >0</span
+                >%)
+              </p>
+              <button id="run-stop">Stop</button>
+            </div>
+            <div class="run-experiment-wrapper">
+              <button class="run-experiment-button" id="run-experiment">
+                Run model
+              </button>
+            </div>
+
+            <div>
+              <p class="edit-warning" id="run-edit-warning" style="display: none;">
+                IMPORTANT: do not edit anything in the spreadsheet until the process
+                completes 100%
+              </p>
+            </div>
+          </div>
+        </div>
+      `, le = M.bind(d); I(le`<${function () {
+      return le`
+        <main>
+          <div class="app-wrapper">
+            <${te} />
+            <${se} />
+            <${oe} />
+          </div>
+        </main>
+      `}} />`, document.getElementById("app")), (() => { const e = { current: {}, models: [{ name: "FFN Vectorization algorithm" }, { name: "Linear Regression" }], currentModel: {}, query: "sort=recent", list: [], showConfidence: !1, insertPlace: "insertRight", colRange: "A2:A5", hasHeaders: !0, publicExperiments: [], visibilityQuery: "" }, t = { 0: "text", 1: "text", 3: "question" }; let n = {}; const s = { progress: 0, processed: 0, total: 0, stop: !1, updateProgress() { this.progress = parseInt(this.processed / this.total * 100) }, clearRunState(e) { this.progress = 0, this.processed = 0, this.total = 0, this.stop = !1, e.changeText(U.run.runStop, "Stop"), e.changeText(U.run.runTotalCells, this.total), e.changeText(U.run.runProcessed, this.processed), e.changeText(U.run.runPercentage, this.progress) } }, i = async (t, n, s, i = !1) => { const o = t.getEntireColumn().getColumnsAfter(1).insert("Right"); o.load("address"), o.load("values"), await s.sync(); const l = o.address.split("!")[1][0], [a, r] = t.address.split("!")[1].split(":"), [c, d] = a, u = r ? r[1] : "", p = u ? `${l}${d}:${l}${u}` : `${l}${d}`, _ = n.getRange(p); if (e.hasHeaders) if (i) { n.getRange(`${l}1`).values = [["Confidence"]] } else { n.getRange(`${l}1`).values = [[e.current.title]] } return _.load("values"), _.load("address"), console.log(p), await s.sync(), _ }; class o { constructor(e, t) { this.current = e, this.history = [this.current], this.dom = t, this.dom.showPage(e) } updateForwardPageState(e) { this.history.push(e), this.current = this.history[this.history.length - 1] } switchPagesVisibility(e, t) { this.dom.hidePage(e), this.dom.showPage(t) } navigateTo(e) { this.switchPagesVisibility(this.current, e), this.updateForwardPageState(e) } navigateToSubPage(e, t) { this.switchPagesVisibility(e, t) } } async function l(o) { if (1 === e.colRange.length) { const t = Y(e.colRange); e.colRange = `${t}:${t}` } const { showConfidence: l, currentModel: a, insertPlace: r } = e; let { colRange: c } = e; const d = new J("https://predict.cogniflow.ai"); Excel.run((async u => { const p = u.workbook.worksheets.getActiveWorksheet(); if (O(c)) c = await (async (t, n, s = !1) => { const i = t.getUsedRange(), o = Y(e.colRange), l = o.charCodeAt() - 65, a = e.hasHeaders ? 1 : 0; let r = a; for (i.load("values"), await n.sync(); r < i.values.length && i.values[r][l]; r++); return `${o}${a + 1}:${o}${r}` })(p, u); else { const e = p.getRange(c); e.load("values"), await u.sync(); const t = Q(c), n = Y(c); let s = t; for (const [t] of e.values) { if (!t) break; s++ } s !== t && (c = `${n}${t}:${n}${s - 1}`) } const _ = p.getRange(c); _.load("values"), _.load("text"), _.load("address"), await u.sync(); const g = { text: { time: 1e3, limit: 5 }, image: { time: 1e3, limit: 2 }, audio: { time: 1e3, limit: 1 }, index: 0 }, h = _.text; let v = [], m = 0, f = 0; s.total = h.length; const y = H[e.current.type], x = D[e.current.task], b = a.id; async function w(t, n, i) { if (s.stop) return; const a = await Promise.allSettled(i); let d = []; d = 3 === e.current.task ? a.map((({ value: e }) => [e.result[0].answer])) : a.map((({ value: e }) => [e.result])); const _ = Y(c), h = Q(c), v = `${_}${f + h}:${_}${n + h}`; let m = p.getRange(v); if (m.load("values"), m.load("address"), await u.sync(), m = j[r](m), m.load("values"), f = n + 1, m.values = d, l) { let t = 0; t = 3 === e.current.task ? a.map((({ value: e }) => [e.result[0].confidence])) : a.map((({ value: e }) => [e.confidence_score])); j[r](m).values = t } g.index = -1, s.stop || (s.processed = s.processed + a.length, s.updateProgress(), o.changeText(U.run.runTotalCells, s.total), o.changeText(U.run.runProcessed, s.processed), o.changeText(U.run.runPercentage, s.progress)), await u.sync() } const k = e.current.type, T = { image: "jpg", audio: "mp3" }[H[k]], C = g[H[k]]; if ("insertRight" === e.insertPlace) if (e.showConfidence) { const e = await i(_, p, u, !1); await i(e, p, u, !0) } else await i(_, p, u, !1); for (const i of h) { if (s.stop) break; const [o] = i, l = o.replace(/\n/g, "\\n"), a = t[e.current.task] || "url"; v.push(d.post(`${y}/${x}/${b}`, JSON.stringify({ [a]: l, ...T ? { format: T } : {} }), { accept: "application/json", "Content-Type": "application/json", "x-api-key": n.api_keys ? n.api_keys[0].key : {} }, "retry")), g.index !== C.limit && m !== h.length - 1 || (await w(0, m, v), v = []), g.index += 1, m += 1 } await u.sync(), o.getById(U.run.runEditWarning).style.display = "none", o.changeText(U.run.runExperiment, "Run model") })) } const a = new J("https://api.cogniflow.ai"), r = new class { getById(e) { return document.getElementById(e) } getElementsByClass(e) { return document.getElementsByClassName(e) } hidePage(e) { this.getById(e).style.display = "none" } showPage(e) { this.getById(e).style.display = "block" } addEvent(e, t, n) { this.getById(e).addEventListener(t, n) } addEventToElements(e, t, n) { const s = this.getElementsByClass(e); for (const e of s) e.addEventListener(t, n) } changeText(e, t) { this.getById(e).innerText = t } removeListenersFromNode(e) { const t = document.getElementById(e), n = t.cloneNode(!0); t.parentNode.replaceChild(n, t) } }; let c = new o(U.login.pageId, r); (function (t, i, o, a) { const { login: { pageId: r, emailInput: c, passwordInput: d, loginButton: u, goToSecretTokenAuth: p, gotToNormalAuth: _, subPages: { defaultSubpage: g, secretToken: h }, invalidCredentials: v }, experiments: { pageId: m, experimentCardsClassName: f, cardsContainer: y, visibilityDropdown: x, typeDropdown: b, logoutBtn: w }, run: { pageId: k, goBack: T, confidenceDd: C, includeHeadersContainer: $, hasHeadersCb: E, insertDd: P, modelDd: A, expValue: I, confidenceValue: S, hasHeadersValue: B, modelValue: M, resultPlaceValue: R, cellsRange: L, runProgressContainer: H, runProcessed: D, runTotalCells: U, runPercentage: F, runStop: z, runExperiment: j, runEditWarning: O } } = o, Y = s => { a.get("user/").then((e => { n = e })).catch((e => { console.log(e) })); const o = n => { t.getById(y).innerHTML = "", W(n, q, y, t), t.addEventToElements(f, "click", (t => { const n = t.currentTarget.id; a.get(`experiment/${n}`).then((({ models: t, ...n }) => { e.current = n, e.models = t, i.navigateTo(k), s() })) })) }; a.get(`experiment/?${e.query}`).then((t => { e.list = t.filter((e => 3 === e.status && V.includes(e.task))), o(e.list) })), a.get(`experiment/public?${e.query}`).then((n => { e.publicExperiments = n, t.getById(x).disabled = !1, t.addEvent(x, "change", (t => { const { value: n } = t.target, s = e[n]; e.visibilityQuery = "publicExperiments" === n ? "public" : "", o(s) })) })), t.addEvent(b, "change", (t => { const n = e.visibilityQuery, s = t.target.value, i = s ? `type=${s}&&` : ""; a.get(`experiment/${n}?${i}${e.query}`).then((e => { o(e) })) })), t.addEvent(w, "click", (() => { i.navigateTo(r), t.removeListenersFromNode(m) })) }, Q = () => { (() => { if (!e.current.id_recommended_model) return void (e.currentModel = { recommended: !0, ...e.models[0] }); const t = e.models.findIndex((t => e.current.id_recommended_model === t.id)); e.currentModel = { recommended: !0, ...e.models[t] }, e.models[t] = e.models[0], e.models[0] = e.currentModel })(), Z(e.models, A, t), Excel.run((n => { const s = n.workbook.worksheets.getActiveWorksheet(); return N.select = s.onSelectionChanged.add((n => { t.getById(L).value = n.address, e.colRange = n.address })), n.sync() })), t.changeText(I, e.current.title), t.addEvent(T, "click", (() => { t.changeText(o.run.runStop, "Run model"), s.clearRunState(t), e.insertPlace = "insertRight", t.removeListenersFromNode(k), i.navigateTo(m), N.select.remove(), Excel.run(N.select.context, (function (e) { return e.sync().then((function () { N.select = null })) })) })), t.addEvent(L, "keyup", (t => { e.colRange = t.target.value })), t.addEvent(C, "change", (({ target: { checked: t } }) => { e.showConfidence = t })), t.addEvent(E, "change", (({ target: { checked: t } }) => { e.hasHeaders = t })), t.addEvent(P, "change", (({ target: { value: t } }) => { e.insertPlace = t })), t.addEvent(A, "change", (({ target: { value: t } }) => { var n; n = t, e.currentModel = e.models.find((({ name: e }) => e === n)) })), t.addEvent(j, "click", (() => { if ("Stop" === t.getById(j).innerText) return t.changeText(U, 0), t.changeText(D, 0), t.changeText(F, 0), s.stop = !0, t.changeText(j, "Run model"), void (t.getById(O).style.display = "none"); try { s.clearRunState(t), l(t), t.getById(O).style.display = "block", t.changeText(j, "Stop") } catch (e) { console.error(e), alert('Sorry, something went wrong, please verify you typed a correct range value.\n For example: "A2:A10" of "B:B"') } })) }; var G; G = () => Y(Q), t.addEvent(u, "click", (() => { const e = { username: t.getById(c).value, password: t.getById(d).value }; a.post("login", new URLSearchParams({ ...e }), { "Content-Type": "application/x-www-form-urlencoded" }).then((e => { a.setTokenInHeaders(e.access_token), i.navigateTo(m), t.getById(v).style.display = "none", G() })).catch((e => { t.getById(v).style.display = "block", t.getById(v).innerText = { 422: "Sorry, something went wrong, please try later", 400: "Invalid credencials, please try again" }[e.status], t.getById(u).blur() })) })), t.addEvent(p, "click", (() => { i.switchPagesVisibility(g, h) })), t.addEvent(_, "click", (() => { i.switchPagesVisibility(h, g) })) })(r, c, U, a) })();
+    //# sourceMappingURL=index.810e125e.js.map
+  language: typescript
+template:
+  content: <div id="app"></div>
+  language: html
+style:
+  content: >
+    @import
+    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;1,500&display=swap";:root{--main-font-family:Poppins,sans-serif;--blue-100:#d6d9ea;--blue-200:#a4a9c8;--blue-800:#272c4d;--orange-400:#fd9690;--orange-500:#ff6a61;--red-500:#f44336;--gray-200:#f8f8ff;--gray-300:#cdcdcd;--gray-400:#949494;--gray-500:#727272;--tex-size-xs:10px;--tex-size-sm:12px;--text-size-md:16px;--tex-size-lg:28px}.cogni__type__main{background-color:var(--orange-500);color:#fff;border:none}.cogni__title{font-family:var(--main-font-family);font-weight:700;font-size:var(--tex-size-lg)}.cogni__sm-text{font-size:12px}.cogni__md-text{font-size:16px}.cogni__form-input{border-width:0
+    0
+    1px;border-color:var(--gray-400);height:35px;box-sizing:border-box;font-family:var(--main-font-family);outline:0;transition:all
+    .2s ease-in}.cogni__form-input:focus{border-width:0 0
+    2px;border-color:var(--gray-400)}.cogni__form-input:hover{border-width:0 0
+    2px;border-color:#202020}.cogni__form-input::placeholder{font-family:var(--main-font-family);font-size:var(--tex-size-sm)}.cogni__link{color:var(--orange-500);cursor:pointer;text-decoration:underline}.cogni__navbar{border-bottom:1px
+    solid
+    var(--blue-100);flex-wrap:wrap;align-items:center;gap:12px;padding:12px;display:flex}.cogni__nav-link{cursor:pointer;background-color:var(--orange-500);border-radius:3px;padding:3px
+    12px}.cogni__nav-link
+    p{color:#fff}.cogni__goback-button{border:none;padding:2px
+    8px}.cogni__default-select{border:1px solid
+    var(--blue-200);cursor:pointer;border-radius:5px;outline:none;padding:8px
+    12px}.navbar__logo{cursor:pointer;align-items:center;display:flex}.navbar__logo-text{justify-content:space-between;align-items:center;display:flex}.cogni__text-xs{font-family:var(--main-font-family);font-size:var(--tex-size-sm)}.mr-sm{margin-right:12px}.mr-xs{margin-right:8px}.mr-md{margin-right:16px}.mb-sm{margin-bottom:12px}.mb-md{margin-bottom:24px}.mt-sm{margin-top:12px}.mt-md{margin-top:24px}.mt-lg{margin-top:42px}.w-100{width:100%}.p-md{padding:16px}.px-sm{padding-left:12px;padding-right:12px}.py-sm{padding-top:12px;padding-bottom:12px}.py-md{padding-top:16px;padding-bottom:16px}.wg-md{font-weight:600}.d-none{display:none}main,p,li,ul{margin:0;padding:0}main{background-color:var(--gray-200)}p{color:var(--blue-800);font-family:Nunito,sans-serif}button{border:1px
+    var(--gray-400)solid;font-family:var(--main-font-family);color:var(--blue-800);cursor:pointer;font-weight:700;font-size:var(--tex-size-md);background-color:#fff;border-radius:5px;padding:8px
+    16px}input[type=checkbox]{cursor:pointer}.app-wrapper{max-width:600px;margin:auto;padding:32px}.app-page{background-color:#fff;border-radius:10px;display:none;box-shadow:1px
+    3px 16px -3px
+    #a4a9c8}.login__logo-wrapper{height:100px;opacity:.8;background:linear-gradient(135deg,#dedfeb55
+    25%,#0000 25%) -33px 0/66px 66px,linear-gradient(225deg,#dedfeb 25%,#0000
+    25%) -33px 0/66px 66px,linear-gradient(315deg,#dedfeb55 25%,#0000 25%) 0
+    0/66px 66px,linear-gradient(45deg,#dedfeb 25%,#f8f8ff 25%) 0 0/66px
+    66px;border-radius:10px;justify-content:center;align-items:center;padding:16px
+    0;display:flex}.login__form-section{flex-direction:column;justify-content:center;align-items:center;padding:32px
+    32px 64px;display:flex}.login__form-wrapper{width:420px}@media
+    (max-width:640px){.login__form-wrapper{width:350px}}@media
+    (max-width:500px){.login__form-wrapper{width:100%}}.login__secret-token-link{justify-content:flex-end;display:flex}.login__form-button:hover{opacity:.9}.login__form-button:focus{opacity:.6}.login-error{text-align:center;color:var(--red-500);display:none}.main-navbar{justify-content:space-between}.experiments-options{justify-content:flex-end;display:flex}.experiments-select{background-color:var(--orange-500);color:#fff;border:none}.experiments-searchbar-wrapper{border:1px
+    solid
+    var(--blue-100);border-radius:5px;justify-content:center;align-items:center;display:flex}.experiments-searchbar-wrapper
+    button{padding:0
+    initial;background-color:var(--blue-100);color:#fff;border:none;border-radius:0}.experiments-search-input{color:var(--blue-200);border:none;margin:0;padding-left:12px}.experiments-search-input::placeholder{color:var(--blue-100)}.experiment-cards{flex-wrap:wrap;justify-content:space-evenly;gap:12px;padding-bottom:12px;display:flex}.experiment-card{cursor:pointer;width:150px;height:150px;background-color:var(--gray-200);border-radius:10px;flex-direction:column;justify-content:space-between;transition:all
+    .2s
+    ease-in;display:flex;position:relative;overflow:hidden}.experiment-card:hover{box-shadow:1px
+    3px 16px -3px
+    #a4a9c8}.exp-card-header{height:40px;position:relative}.exp-card-bg-img{height:40px;width:110%;background-image:url(https://app.cogniflow.ai/img/imgTextPattern.png);position:absolute;top:-10px;transform:rotate(7deg)}.exp-card-header-logos{justify-content:space-between;align-items:center;padding:6px;display:flex;position:relative}.exp-card-logo-wrapper{width:20px;height:20px;background-color:#fff;border-radius:8px;justify-content:center;align-items:center;display:flex;position:relative}.exp-card-logo{width:100%;height:100%}.exp-card-content{padding:0
+    6px
+    6px}.exp-card-title{background-color:#f8f8ff;border-radius:10px;justify-content:center;padding:10px
+    12px;display:flex}.exp-card-title
+    p{color:var(--blue-800);font-size:var(--tex-size-md);text-align:center;text-overflow:ellipsis;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;font-weight:700;line-height:16px;display:-webkit-box;overflow:hidden}.exp-card-body{flex-direction:column;justify-content:center;align-items:center;padding:0
+    16px;display:flex}.exp-card-body
+    p{text-align:center;font-size:14px;line-height:16px}.exp-card-time{padding:6px
+    12px}.exp-card-time .exp-card-time-label{font-weight:700}.exp-card-time
+    p{font-size:var(--tex-size-sm)}.experiment-go-back,.experiment-name,.experiment-nav-item-void{flex:1}.experiment-go-back{display:flex}.cogni__arrow-icon:after{content:"←"}.experiment-name{color:var(--blue-800);text-align:center;font-size:18px;font-weight:700}.run-select-field
+    div{justify-content:center;display:flex}.run-select-field
+    p{color:var(--orange-500);font-weight:700;font-size:var(--tex-size-sm);text-align:center;margin-bottom:5px}.run-select-field
+    select{background-color:var(--orange-500);color:#fff;font-family:var(--main-font-family);text-align:center;border:none;outline:none;font-weight:700}.run-select-field
+    option{border:none;outline:none;padding:16px
+    0;font-weight:700}.run-options-bar{flex-wrap:wrap-reverse;justify-content:flex-end;gap:12px;display:flex}.run-checkboxes-wrapper{align-items:end;gap:12px;display:flex}.run-dropdowns-wrapper{width:100%;flex-wrap:wrap;justify-content:center;gap:12px;display:flex}.run-experiment-wrapper{justify-content:center;display:flex}.run-cells-range{padding-bottom:0}@media
+    (max-width:595px){.run-cells-range{justify-content:center}}.run-cells-range-items{align-items:end;gap:40px;display:flex}@media
+    (max-width:440px){.run-range-input-wrapper{flex-direction:column;align-items:center;margin-bottom:8px}.run-cells-range-items{justify-content:center;align-items:center;gap:0;display:flex}.run-cells-range-items
+    .run-checkbox-label{text-align:center}}.run-cells-range-items
+    p{font-size:var(--tex-size-md);color:var(--blue-800);width:180px;text-align:end;font-weight:700}.run-cells-range-items
+    .cogni__form-input{color:var(--orange-500);width:80px;font-weight:700}.run-labels-wrapper{border:1px
+    solid
+    var(--gray-300);border-radius:5px}.run-values{color:var(--blue-800);font-weight:700}.run-labels{border-bottom:1px
+    solid var(--gray-300);justify-content:space-between;padding:8px
+    0;display:flex}.run-labels:last-child{border-bottom:none}.run-progress-wrapper{justify-content:center;align-items:center;gap:12px;display:flex}.run-progress-wrapper
+    p{align-items:center;display:flex}.run-progress-wrapper
+    button{background-color:var(--orange-500);color:#fff;border:none;padding:0
+    12px;display:none}.run-experiment-button{background-color:var(--orange-500);color:#fff;border:none}.edit-warning{text-align:center;background-color:#ffffce;margin-top:12px}.active{display:block}
+
+    /*# sourceMappingURL=index.db071778.css.map */
+  language: css
+libraries: |
+  https://appsforoffice.microsoft.com/lib/1/hosted/office.js
+  @types/office-js
+
+  office-ui-fabric-js@1.4.0/dist/css/fabric.min.css
+  office-ui-fabric-js@1.4.0/dist/css/fabric.components.min.css
+
+  core-js@2.4.1/client/core.min.js
+  @types/core-js
+
+  jquery@3.1.1
+  @types/jquery@3.3.1
