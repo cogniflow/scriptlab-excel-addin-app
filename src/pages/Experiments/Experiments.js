@@ -7,13 +7,7 @@ export const Experiments = () => {
   return html` <div id="page-experiments" class="app-page">
     <div class="cogni__navbar mb-xs main-navbar">
       <div class="navbar__logo-text">
-        <div class="navbar__logo">
-          <img
-            height="30"
-            src="https://media-exp1.licdn.com/dms/image/C4E0BAQFJHyVpoH4QuA/company-logo_200_200/0/1630606332593?e=2159024400&v=beta&t=qcXVSsYYBTcdeX0e-Cx8q5cxStydyPjhEWyEZcYaj0Y"
-            alt="Cogniflow logo"
-          />
-        </div>
+        <div class="navbar__logo"></div>
       </div>
       <div>
         <select

@@ -1,15 +1,16 @@
 import { h } from 'preact';
 import htm from 'htm';
 
-import { CogniflowLogo } from './../../assets';
+import { WalmartLogo } from './../../assets';
 
 const html = htm.bind(h);
+// <${WalmartLogo} />
 
 export const Login = () => {
   return html`
     <div id="page-login" class="app-page">
       <div class="login__logo-wrapper">
-        <${CogniflowLogo} />
+        <${WalmartLogo} />
       </div>
       <section class="login__form-section">
         <div class="login__form-wrapper">
