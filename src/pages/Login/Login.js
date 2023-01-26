@@ -2,10 +2,30 @@ import { h } from 'preact';
 import htm from 'htm';
 
 import { CogniflowLogo } from './../../assets';
+import { useAuthContext } from '../../context/AuthContext';
+import { useState, useContext } from 'preact/hooks';
+// import { useContext } from 'preact';
 
 const html = htm.bind(h);
 
 export const Login = () => {
+  const { login, user: u } = useAuthContext();
+
+  const [user, setUser] = useState({ email: '', password: '' });
+
+  const onChangeHandler = (event) => {
+    setUser((s) => ({
+      ...s,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  // const loginHandler = () => {
+  //   login(user.email, user.password).then(() => {
+  //     console.log(u);
+  //   });
+  // };
+
   return html`
     <div id="page-login" class="app-page">
       <div class="login__logo-wrapper">
@@ -23,6 +43,8 @@ export const Login = () => {
                 placeholder="Your email"
                 type="email"
                 required
+                onChange=${onChangeHandler}
+                name="email"
               />
             </div>
             <div class="login__form-field mb-sm">
@@ -32,7 +54,9 @@ export const Login = () => {
                 class="cogni__form-input w-100"
                 placeholder="Password"
                 type="password"
+                onChange=${onChangeHandler}
                 required
+                name="password"
               />
             </div>
             <div class="login__form-field">

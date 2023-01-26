@@ -1,10 +1,30 @@
 import { h } from 'preact';
 import htm from 'htm';
+import { VISIBILITY } from './../../constants/experiment';
 
 const html = htm.bind(h);
 
+const getExpVisibilityList = (user) => [
+  {
+    text: 'Private experiments',
+    value: VISIBILITY.PRIVATE.value,
+  },
+  {
+    text: 'Public experiments',
+    value: VISIBILITY.PUBLIC.value,
+  },
+  {
+    text: 'Community experiments',
+    value: VISIBILITY.COMMUNITY.value,
+  },
+  {
+    text: 'Organization experiments',
+    value: VISIBILITY.COMPANY.value,
+  },
+];
+
 export const Experiments = () => {
-  return html` <div id="page-experiments" class="app-page">
+  return html`<div id="page-experiments" class="app-page">
     <div class="cogni__navbar mb-xs main-navbar">
       <div class="navbar__logo-text">
         <div class="navbar__logo">
@@ -21,8 +41,9 @@ export const Experiments = () => {
           class="cogni__default-select experiments-select"
           disabled
         >
-          <option value="list">Private experiments</option>
-          <option value="publicExperiments">Public experiments</option>
+          ${getExpVisibilityList({}).map(
+            ({ text, value }) => html` <option value=${value}>${text}</option> `
+          )}
         </select>
       </div>
       <div>

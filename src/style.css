@@ -28,6 +28,11 @@
   --text-size-md: 16px;
   --tex-size-lg: 28px;
 }
+
+body {
+  margin: 0;
+}
+
 .cogni__type__main {
   background-color: var(--orange-500);
   color: white;

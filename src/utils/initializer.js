@@ -3,7 +3,10 @@ import {
   TASKS_ALLOWED,
   EXPERIMENT_TYPES_URL,
   URL_TASK_MAP,
+  VISIBILITY,
 } from './../constants';
+
+import { API_URL, PREDICT_API_URL } from '../constants';
 
 import { testToken } from './../constants';
 
@@ -25,7 +28,7 @@ import {
   removeExcelEvent,
 } from './functions';
 
-import HttpService from './../services/http';
+import { httpPredict, http } from './../services/http';
 
 export const Initializer = () => {
   const EXPERIMENT = {
@@ -42,12 +45,16 @@ export const Initializer = () => {
     colRange: 'A2:A5',
     hasHeaders: true,
     publicExperiments: [],
-    visibilityQuery: '',
+    visibilityQuery: '?visibility=private',
+    typeQuery: '',
   };
   const QANDA_TASK = 3;
 
-  const API_URL = 'https://api.cogniflow.ai';
-  const PREDICT_API_URL = 'https://predict.cogniflow.ai';
+  // const API_URL = 'http://api-ml.carrasco.uruit.com';
+  // const PREDICT_API_URL = 'http://predict-ml.carrasco.uruit.com';
+
+  // const API_URL = 'http://localhost:5000';
+  // const PREDICT_API_URL = 'http://predict-ml.carrasco.uruit.com';
 
   // Task based
   const REQUEST_BODY_KEYS = {
@@ -265,8 +272,6 @@ export const Initializer = () => {
 
     const { showConfidence, currentModel, insertPlace } = EXPERIMENT;
     let { colRange } = EXPERIMENT;
-
-    const httpPredict = new HttpService(PREDICT_API_URL);
 
     Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getActiveWorksheet();
@@ -575,22 +580,34 @@ export const Initializer = () => {
         dom.addEvent(visibilityDropdown, 'change', (event) => {
           const { value: visibility } = event.target;
           const experimentList = EXPERIMENT[visibility];
-          EXPERIMENT.visibilityQuery =
-            visibility === 'publicExperiments' ? 'public' : '';
 
-          appendExperimentListInDom(experimentList);
+          EXPERIMENT.visibilityQuery = visibility
+            ? `visibility=${visibility}`
+            : EXPERIMENT.visibilityQuery;
+
+          http
+            .get(
+              `experiment/page?${EXPERIMENT.visibilityQuery}&${EXPERIMENT.typeQuery}&${EXPERIMENT.query}`
+            )
+            .then((response) => {
+              appendExperimentListInDom(response.experiments);
+            });
+
+          // appendExperimentListInDom(experimentList);
         });
       });
 
       dom.addEvent(typeDropdown, 'change', (event) => {
         const visibility = EXPERIMENT.visibilityQuery;
         const type = event.target.value;
-        const typeQuery = type ? `type=${type}&&` : '';
+        const typeQuery = type ? `type=${type}` : '';
+
+        EXPERIMENT.typeQuery = typeQuery;
 
         http
-          .get(`experiment/${visibility}?${typeQuery}${EXPERIMENT.query}`)
+          .get(`experiment/page?${visibility}&${typeQuery}&${EXPERIMENT.query}`)
           .then((response) => {
-            appendExperimentListInDom(response);
+            appendExperimentListInDom(response.experiments);
           });
       });
 
@@ -679,7 +696,6 @@ export const Initializer = () => {
     // setRunModelPageEvents();
   }
 
-  const http = new HttpService(API_URL);
   const domHandler = new DomHandler();
 
   // let router = "";

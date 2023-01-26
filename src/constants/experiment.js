@@ -14,3 +14,10 @@ export const EXPERIMENT_TYPES = {
 
 export const testToken = '';
 // "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmMDk0Mjg4Yi0wYWFjLTRhYWQtOGRmNi00NjhlZTY4OWEwNGUiLCJhY2NvdW50X3R5cGUiOjMsImV4cCI6MTY0Njg1NjEwM30.Qc222N0PhQjdBAP84aCc979rmoCWkK9AKq1ddnk2yzY";
+
+export const VISIBILITY = {
+  PRIVATE: { value: 0, label: 'private' },
+  PUBLIC: { value: 1, label: 'public' },
+  COMPANY: { value: 2, label: 'organization' },
+  COMMUNITY: { value: 3, label: 'community' },
+};

@@ -1,4 +1,4 @@
-import { testToken } from '../constants';
+import { API_URL, PREDICT_API_URL, testToken } from '../constants';
 import { fetchRetry } from '../utils/functions';
 
 export default class HttpService {
@@ -59,3 +59,6 @@ export default class HttpService {
   get = this.req('GET');
   post = this.req('POST');
 }
+
+export const http = new HttpService(API_URL);
+export const httpPredict = new HttpService(PREDICT_API_URL);
