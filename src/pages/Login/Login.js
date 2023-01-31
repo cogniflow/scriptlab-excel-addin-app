@@ -67,6 +67,7 @@ export const Login = () => {
                 <!-- Use a secret token instead -->
               </p>
             </div>
+
             <div class="login__form-field mt-sm">
               <button
                 id="default-login-button"
@@ -75,10 +76,21 @@ export const Login = () => {
               >
                 Login
               </button>
+
               <p class="mt-sm login-error" id="login-invalid-creds">
                 Invalid credentials, please try again
               </p>
             </div>
+            <p class="cogni__sm-text" style="margin-top: 12px; color: #949494">
+              You need to have a Cogniflow password to access our Excel Add-in,
+              if you don't have one, create it
+              <a
+                href="https://app.cogniflow.ai/settings/profile"
+                target="_blank"
+                style="margin-left: 4px"
+                >here</a
+              >
+            </p>
           </div>
           <div class="px-sm d-none" id="login-use-secret-token">
             <div class="login__form-field mb-sm">
