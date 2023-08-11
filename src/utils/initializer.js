@@ -49,6 +49,7 @@ export const Initializer = () => {
     typeQuery: '',
   };
   const QANDA_TASK = 3;
+  const SMART_EXTRACTOR = 4;
 
   // const API_URL = 'http://api-ml.carrasco.uruit.com';
   // const PREDICT_API_URL = 'http://predict-ml.carrasco.uruit.com';
@@ -61,6 +62,7 @@ export const Initializer = () => {
     0: 'text',
     1: 'text',
     3: 'question',
+    4: 'text',
   };
 
   let user = {};
@@ -161,8 +163,6 @@ export const Initializer = () => {
 
     newInsertedColumnRange.load('values');
     newInsertedColumnRange.load('address');
-
-    console.log(insertedColumnRangeStr);
 
     await context.sync();
 
@@ -342,6 +342,10 @@ export const Initializer = () => {
         let resultText = [];
         if (EXPERIMENT.current.task === QANDA_TASK) {
           resultText = responses.map(({ value }) => [value.result[0].answer]);
+        } else if (EXPERIMENT.current.task === SMART_EXTRACTOR) {
+          resultText = responses.map(({ value }) => [
+            JSON.stringify(value.result),
+          ]);
         } else {
           resultText = responses.map(({ value }) => [value.result]);
         }
